@@ -12,7 +12,7 @@ namespace HelpDeskSystem.Web.Models
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; } = string.Empty;
-
+        [Required]
         public string Status { get; set; } = "Open";
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

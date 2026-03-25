@@ -23,7 +23,10 @@ namespace HelpDeskSystem.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var helpDeskDbContext = _context.Tickets.Include(t => t.Category).Include(t => t.User);
-            return View(await helpDeskDbContext.ToListAsync());
+            return View(await _context.Tickets
+                .Include(t => t.Category)
+                .Include(t => t.User)
+                .ToListAsync());
         }
 
         // GET: Tickets/Details/5
