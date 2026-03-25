@@ -61,6 +61,8 @@ namespace HelpDeskSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,Status,CreatedAt,UserId,CategoryId")] Ticket ticket)
         {
+            ticket.UserId = 1;
+
             if (ModelState.IsValid)
             {
                 _context.Add(ticket);
